@@ -3,13 +3,16 @@ import { put } from 'aws-amplify/api';
 import {useMutation, useQueryClient} from '@tanstack/react-query'
 
 async function saveHero(hero) {
+    const options = {
+        body: hero
+    }
+
+    console.log(options)
     try {
       const res = await put({
           apiName: 'superheroes',
           path: `/superheroes/${hero.id}`,
-          body: {
-            ...hero
-          }
+          options
       }).response
   
   
@@ -44,12 +47,12 @@ export default function HeroForm(props) {
     }
 
     return (
-        <div className="mt-4">
+        <div className="text-black mt-4">
             {localHero.id}
             <form onSubmit={save}>
                 Name: <input value={localHero.name} onChange={updateLocalHero} />
 
-                <button className="bg-blue-700 rounded-full py-2 px-4 hover:bg-blue-500" type="submit">Save</button>
+                <button className=" bg-blue-700 rounded-full py-2 px-4 hover:bg-blue-500" type="submit">Save</button>
             </form>            
         </div>
     )
