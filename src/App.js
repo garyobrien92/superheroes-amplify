@@ -4,47 +4,43 @@ import config from './aws-exports'
 import '@aws-amplify/ui-react/styles.css';
 import { useEffect, useState } from 'react';
 
-import { get } from 'aws-amplify/api';
+
+import {
+  QueryClient,
+  QueryClientProvider,
+  useMutation,
+} from '@tanstack/react-query'
+import SearchSuperHeroes from './components/SearchSuperHeroes'
+import SavedSuperHeroes from './components/SavedHeroes';
+import HeroForm from './components/HeroForm';
 
 Amplify.configure(config)
 
-console.log(Amplify.getConfig())
+// Create a client
+const queryClient = new QueryClient()
 
 function App() {
+  const [selectedHero, setSelectedHero] = useState(null)
 
-  const [heroes, setHeroes] =  useState([])
-
-  useEffect(() => {
-    get({
-      apiName: 'superheroes', 
-      path:'/superheroes'
-    })
-    .response
-    .then((res) => res.body.json())
-    .then(res => setHeroes(() =>res)).catch(err => {
-      console.log(err)
-    })
-  }, [])
-  
   return (
-        <div className="App">
-          <header className="App-header">
-            Hello
-            <p>
-            Hey 
-          </p>
+    <QueryClientProvider client={queryClient}>
+      <div className="App">
+        <header className="App-header">
+          <h1>Super Heroes</h1>
+        </header>
+
+        <div className='flex-1 flex flex-col w-1/2'>
+          <SearchSuperHeroes />
+
+          <SavedSuperHeroes setSelectedHero={setSelectedHero} />
 
           {
-            heroes.map((hero) => (
-              <div key={hero.id}>
-                { hero.name }
-                <img src={hero.image.url} width="50px" height="50px" />
-              </div>
-            ))
+            selectedHero && selectedHero.id &&
+            <HeroForm key={selectedHero.id} hero={selectedHero} />
           }
-          </header>
         </div>
-      
+      </div>
+    </QueryClientProvider>
   );
 }
 
