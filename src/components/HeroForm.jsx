@@ -45,7 +45,7 @@ export default function HeroForm(props) {
     }
 
     return (
-        <div className='text-black ml-4 flex items-center border-l-2 pl-2 flex-col text-white'>
+        <div className='ml-4 flex items-center border-l-2 pl-2 flex-col text-white'>
             <h3>{props.hero.name}</h3>
             <form onSubmit={save} className="flex flex-col">
                 <span>
