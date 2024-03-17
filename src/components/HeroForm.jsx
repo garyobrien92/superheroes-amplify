@@ -7,7 +7,6 @@ async function saveHero(hero) {
         body: hero
     }
 
-    console.log(options)
     try {
       const res = await put({
           apiName: 'superheroes',
