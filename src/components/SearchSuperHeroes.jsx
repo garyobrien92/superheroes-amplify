@@ -38,7 +38,7 @@ async function saveHero(hero) {
 
 export default function SearchSuperHeroes() {
     const queryClient = useQueryClient()
-    const [name, setName] = useState('ironman')
+    const [name, setName] = useState('batman')
     const queryKey = ['superheroes', name]
     const query = useQuery({ 
         queryKey, 
@@ -58,12 +58,13 @@ export default function SearchSuperHeroes() {
 
             {!query.data && query.isLoading && (<div>Loading</div>)}
 
+            <h2>Search Heroes</h2>
             {query.data &&  !query.isLoading &&
-                <div className="w-full flex-1 flex flex-wrap p-4 gap-4">
+                <div className="w-full flex-1 flex flex-wrap p-4 gap-8 items-center justify-center">
 
                     {query.data.hero.map(({ data: hero }) => (
-                        <div key={hero.id} className="border rounded flex flex-col">
-                            <img className="rounded" src={hero.image.url} width="200px" height="200px" />
+                        <div key={hero.id} className="border rounded flex flex-col basis-48">
+                            <img className="rounded w-full" src={hero.image.url}/>
                             <span>{hero.name}</span>
                             <div className="flex-1">
                                 <button className=" bg-blue-700 w-full py-2 px-4 hover:bg-blue-500" onClick={() => mutation.mutate(hero)}>

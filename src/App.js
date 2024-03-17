@@ -29,10 +29,13 @@ function App() {
           <h1>Super Heroes</h1>
         </header>
 
-        <div className='flex-1 flex flex-col w-1/2'>
-          <SearchSuperHeroes />
+        <div className='flex-1 flex'>
+          <div className='flex-0 flex gap-8 flex-col'>
+            <SearchSuperHeroes />
 
-          <SavedSuperHeroes setSelectedHero={setSelectedHero} />
+            <SavedSuperHeroes setSelectedHero={setSelectedHero} />
+          </div>
+
 
           {
             selectedHero && selectedHero.id &&
