@@ -31,7 +31,7 @@ export default function SavedSuperHeroes(props) {
 
             <h2>Saved Heroes</h2>
             {query.data && !query.isLoading &&
-                <div className="w-full flex-1 flex flex-wrap p-4 gap-8 items-center justify-centerl">
+                <div className="w-full flex-1 flex flex-wrap p-4 gap-8 items-center justify-start">
                     {query.data.map((hero) =>
                         <div className="border rounded flex flex-col basis-48" key={hero.id}>
                             <img className="rounded w-auto" src={hero.image.url}/>
