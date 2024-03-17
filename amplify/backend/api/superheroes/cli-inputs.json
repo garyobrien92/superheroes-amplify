@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/superheroes": {
+      "name": "/superheroes",
+      "lambdaFunction": "superheroesapiaeee2740",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

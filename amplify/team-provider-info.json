@@ -1,0 +1,36 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-superheroesapi-dev-223351-authRole",
+      "UnauthRoleArn": "arn:aws:iam::058264523122:role/amplify-superheroesapi-dev-223351-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::058264523122:role/amplify-superheroesapi-dev-223351-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-superheroesapi-dev-223351-deployment",
+      "UnauthRoleName": "amplify-superheroesapi-dev-223351-unauthRole",
+      "StackName": "amplify-superheroesapi-dev-223351",
+      "StackId": "arn:aws:cloudformation:ap-south-1:058264523122:stack/amplify-superheroesapi-dev-223351/e5c57ce0-e2bf-11ee-9e33-0a8a55f212d1",
+      "AmplifyAppId": "d6mliym3u98rs"
+    },
+    "categories": {
+      "auth": {
+        "superheroesapi2cff0e3d": {}
+      },
+      "function": {
+        "superheroesfunc": {
+          "deploymentBucketName": "amplify-superheroesapi-dev-223351-deployment",
+          "s3Key": "amplify-builds/superheroesfunc-524a7636346d77794679-build.zip"
+        },
+        "superheroesapiaeee2740": {
+          "deploymentBucketName": "amplify-superheroesapi-dev-223351-deployment",
+          "s3Key": "amplify-builds/superheroesapiaeee2740-59597850417375762b44-build.zip"
+        }
+      },
+      "storage": {
+        "superhero": {}
+      },
+      "api": {
+        "superheroes": {}
+      }
+    }
+  }
+}
