@@ -4,8 +4,6 @@ import { post } from 'aws-amplify/api';
 import { useDebounce } from "@uidotdev/usehooks";
 
 async function searchSuperHeroes({ queryKey }) {
-
-    console.log(process.env.RAPID_API_KEY)
     const [_, name] = queryKey;
     try {
         const res = await fetch(`https://superhero-api.p.rapidapi.com/search?name=${name}&limit=10`, {
