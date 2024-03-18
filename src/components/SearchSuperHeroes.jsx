@@ -10,7 +10,7 @@ async function searchSuperHeroes({ queryKey }) {
     try {
         const res = await fetch(`https://superhero-api.p.rapidapi.com/search?name=${name}&limit=10`, {
             headers: {
-                'X-RapidAPI-Key':  process.env.RAPID_API_KEY,
+                'X-RapidAPI-Key':  process.env.REACT_APP_RAPID_API_KEY,
                 'X-RapidAPI-Host': 'superhero-api.p.rapidapi.com'
             }
         })
