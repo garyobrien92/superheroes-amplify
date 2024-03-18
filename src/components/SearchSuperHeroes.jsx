@@ -4,11 +4,13 @@ import { post } from 'aws-amplify/api';
 import { useDebounce } from "@uidotdev/usehooks";
 
 async function searchSuperHeroes({ queryKey }) {
+
+    console.log(process.env.RAPID_API_KEY)
     const [_, name] = queryKey;
     try {
         const res = await fetch(`https://superhero-api.p.rapidapi.com/search?name=${name}&limit=10`, {
             headers: {
-                'X-RapidAPI-Key':  process.env.RAPID_API_KEY,
+                'X-RapidAPI-Key':  process.env.RAPID_API_KEY || "6b4439c66cmsha7681ed4bbbf227p1a75bfjsnac130b8b9082",
                 'X-RapidAPI-Host': 'superhero-api.p.rapidapi.com'
             }
         })
