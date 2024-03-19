@@ -11,7 +11,7 @@ import {
 } from '@tanstack/react-query'
 import SearchSuperHeroes from './components/SearchSuperHeroes'
 import SavedSuperHeroes from './components/SavedHeroes';
-import HeroForm from './components/HeroForm';
+import HeroFormModal from './components/HeroFormModal';
 
 Amplify.configure(config)
 
@@ -39,7 +39,7 @@ function App() {
 
           {
             selectedHero && selectedHero.id &&
-            <HeroForm key={selectedHero.id} hero={selectedHero} />
+            <HeroFormModal key={selectedHero.id} hero={selectedHero} close={() => setSelectedHero(null)} />
           }
         </div>
       </div>
